@@ -1,3 +1,2 @@
 # EventHorizon
-
-## CS590 Group Project 
+ CS590 Group Project 
