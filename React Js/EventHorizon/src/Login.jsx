@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./Login.css";
 
 function Login() {
-  const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLogin = () => {
     //  Authentication logic
@@ -12,23 +13,37 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="User ID"
-        value={userId}
-        onChange={(e) => setUserId(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-    </div>
-    // Add Forgot Password link
+    <>
+      <div>
+        <h2 className="heading">Welcome to EventHorizon - We missed you!</h2>
+      </div>
+      <div className="login-container">
+        <h2>Login</h2>
+        <input
+          type="text"
+          placeholder="User ID"
+          value={userId}
+          onChange={(e) => setUserId(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+      </div>
+      <div>
+        <button className="login-new-user" id="login-new-user">
+          <a href="/signup" target="_blank">
+            New User?
+          </a>
+        </button>
+        <button className="forgot-password">
+          <a href>Forgot Password?</a>
+        </button>
+      </div>
+    </>
   );
 }
 

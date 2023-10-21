@@ -1,11 +1,17 @@
+.heading{
+  color: white;
+  
+}
+
 .login-container {
-    max-width: 350px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #e1e1e1;
     border-radius: 5px;
     background-color: #f5f5f5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 
   }
   
@@ -16,11 +22,11 @@
   }
   
   input {
-    width: 100%;
+    width: 80%;
     padding: 12px 15px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 10px;
     background-color: #fff;
     color: #333;
     transition: border-color 0.2s;
@@ -36,7 +42,7 @@
   }
   
   button {
-    width: 100%;
+    width: 45%;
     padding: 12px 0;
     background-color: #007BFF;
     color: #fff;
@@ -45,6 +51,7 @@
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s;
+    border-radius: 20px;
   }
   
   button:hover {
@@ -58,3 +65,21 @@
     margin-bottom: 15px;
   }
   
+ a{
+  text-decoration: none;
+  color: white
+ }
+ 
+#login-new-user{
+  
+  margin-top: 20px;
+}
+
+.forgot-password{
+  margin-left: 50px;
+}
+
+
+.login-container > h2:nth-child(1){
+  color: black;
+}
