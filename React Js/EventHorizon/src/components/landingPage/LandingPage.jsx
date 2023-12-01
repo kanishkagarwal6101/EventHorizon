@@ -1,33 +1,25 @@
 // import React from 'react';
 
+import NavBar from "../NavBar/NavBar";
+import "./LandingPage.css";
 const LandingPage = () => {
-    return (
-      <div className="landing-page">
-        <header className="header">
-          <h1>Experience Unforgettable- Where Every Seat is a Front Row Experience</h1>
-        </header>
-        <section className="movie-list">
-          <h2>Now Showing</h2>
-          <div className="movie">
-            <h3>Movie Title</h3>
-            <p>Description of the movie</p>
-            <button>Select Seats</button>   
-          </div>
-        </section>
-        <section className="concert-list">
-        <h2>Upcoming Live</h2>
-        <div className="concert">
-            <h3>Concert Name</h3>
-            <p>Band/Artist Name</p>
-            <button>Select Seats</button>
-          </div>
-        </section>
-        <footer className="footer">
+  return (
+    <div className="landing-page">
+      <NavBar />
+      <div className="landing-page-image">
+        {/* <footer className="footer">
           <p>&copy; EventHorizon Tickets Booking. All rights reserved.</p>
-        </footer>
+        </footer> */}
+        <div className="landing-page-text">
+          <h1>EventHorizon</h1>
+          <p>
+            Unforgettable Journey - Where Every Seat Is A Front Row Experience
+          </p>
+          <button className="explore-btn">Explore movies and events</button>
+        </div>
       </div>
-    );
-  };
-  
-  export default LandingPage;
-  
+    </div>
+  );
+};
+
+export default LandingPage;
