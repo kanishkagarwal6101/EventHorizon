@@ -20,11 +20,11 @@ function SignupForm() {
   };
 
   return (
-    <>
+    <div className={"signup-form-container"}>
       <div>
         <h2>Welcome to EventHorizon - Join the revolution</h2>
       </div>
-      <div>
+      <div className="signup-form-container-2">
         <div className={"signup-form"}>
           <h2>Sign Up</h2>
           <form onSubmit={handleSubmit}>
@@ -83,7 +83,7 @@ function SignupForm() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -13,7 +13,7 @@ function Login() {
   };
 
   return (
-    <>
+    <div className="login-page-container">
       <div>
         <h2 className="heading">Welcome to EventHorizon - We missed you!</h2>
       </div>
@@ -33,7 +33,7 @@ function Login() {
         />
         <button onClick={handleLogin}>Login</button>
       </div>
-      <div>
+      <div className="footer-btns">
         <button className="login-new-user" id="login-new-user">
           <a href="/signup" target="_blank">
             New User?
@@ -43,7 +43,7 @@ function Login() {
           <a href>Forgot Password?</a>
         </button>
       </div>
-    </>
+    </div>
   );
 }
 

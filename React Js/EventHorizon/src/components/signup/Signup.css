@@ -7,9 +7,30 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  /* background-image: url('src/images/signup-background.jpg'); */
+}
+
+.signup-form-container{
+background-image: url('src/images/login-background.jpg');
+/* background-size: cover;
+background-position: center; */
+margin-top: 100px!important;
+  padding-top: 200px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  overflow: hidden!important;
+}
+
+.signup-form-container-2{
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-form {
@@ -57,3 +78,8 @@ form{
   margin-top: 10px;
   margin-bottom: 40px;
 }
+
+/* input{
+  max-width: 70%;
+  margin-left: 20px!important;
+} */
