@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./components/login/Login.jsx";
 import SignupForm from "./components/signup/Signup.jsx";
 import LandingPage from "./components/landingPage/LandingPage.jsx";
+import SeatingGrid from "./components/SeatingGrid/SeatingGrid.jsx";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/" element={<Home />} />
         <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/grid" element={<SeatingGrid />} />
       </Routes>
     </Router>
   );
