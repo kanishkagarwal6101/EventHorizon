@@ -4,9 +4,7 @@ header {
     margin-bottom: 20px;
   }
 
-.navbar{
-    /* margin-top: -200px; */
-  }
+
 
 .landing-page-image{
   background-image: url('src/images/homepage-banner.jpg');
@@ -47,3 +45,27 @@ button:hover{
   background-color: rgb(209, 68, 68);
 }
   
+.second-fold{
+  padding: 50px;
+}
+
+.tabs{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.tabs > button:nth-child(1){
+  margin-right: 10px!important;
+}
+
+.tabs > button:nth-child(2){
+  margin-left: 10px;
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 30px;
+}
