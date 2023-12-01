@@ -3,3 +3,47 @@ header {
     color: #333;
     margin-bottom: 20px;
   }
+
+.navbar{
+    /* margin-top: -200px; */
+  }
+
+.landing-page-image{
+  background-image: url('src/images/homepage-banner.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  justify-content: center;
+  min-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.landing-page-text{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  transition: background-color 1.5s ease-in-out;
+  padding: 40px;
+  opacity: 0.85;
+}
+
+.landing-page-text > h1:nth-child(1){
+  text-align: center;
+  color: white;
+}
+
+button{
+  margin: 0 auto;
+  width: 70%;
+  margin-top: 20px
+}
+
+button:hover{
+  background-color: rgb(209, 68, 68);
+}
+  
