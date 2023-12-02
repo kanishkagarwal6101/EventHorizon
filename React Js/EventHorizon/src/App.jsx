@@ -13,7 +13,7 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/" element={<Home />} />
         <Route path="/landingPage" element={<LandingPage />} />
-        <Route path="/grid" element={<SeatingGrid />} />
+        <Route path="/grid" element={<SeatingGrid bookedSeats={["D4"]} />} />
       </Routes>
     </Router>
   );
