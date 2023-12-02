@@ -1,0 +1,85 @@
+body {
+  background-color: #111; /* Dark background color for the entire page */
+  color: #fff; /* Light text color */
+  font-family: Arial, sans-serif; /* Use your preferred font-family */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.signup-form-container{
+background-image: url('src/images/login-background.jpg');
+/* background-size: cover;
+background-position: center; */
+margin-top: 100px!important;
+  padding-top: 200px;
+  padding-bottom: 50px;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden!important;
+}
+
+.signup-form-container-2{
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-form {
+  background-color: #333; /* Dark background color for the form */
+  padding: 20px;
+  border-radius: 8px;
+  width: 600px;
+  text-align: center;
+  margin-top: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  h2{
+      color: white;
+  }
+
+  input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #444; /* Dark input background color */
+    border: 1px solid #555; /* Dark border color */
+    color: #fff; /* Light text color */
+    border-radius: 10px;
+  }
+
+  button {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* Light text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}
+h2{
+ color: white 
+}
+form{
+  margin-top: 20px;
+}
+#root > div:nth-child(1){
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* input{
+  max-width: 70%;
+  margin-left: 20px!important;
+} */
