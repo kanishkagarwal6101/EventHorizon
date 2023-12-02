@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./SeatingGrid.css";
+import StripeBtn from "../StripeFiles/StripeBtn";
+// import StripeBtn from "../StripeFiles/StripeBtn";
 
 const SeatingGrid = ({ bookedSeats }) => {
   const totalRows = 10; // Total number of rows
@@ -66,6 +68,7 @@ const SeatingGrid = ({ bookedSeats }) => {
     <div className="seating-grid">
       <div className="screen">Screen this way</div>
       {renderSeats()}
+      <StripeBtn />
     </div>
   );
 };
