@@ -1,0 +1,34 @@
+.container{
+    display: flex;
+    flex-wrap:wrap;
+    margin-bottom: 50px;
+    /* align-items: center; */
+}
+
+.title{
+    width: 70%;
+    margin-left: 20px;
+    padding: 20px;
+    
+}
+
+p{
+    font-size: 12px;
+}
+
+.details{
+    width:200px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+}
+
+.imageCard{
+    width: 300px;
+}
+
+.btn{
+    width: 40%;
+    margin-top: 50px;
+}
