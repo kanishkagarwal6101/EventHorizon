@@ -2,29 +2,39 @@ import React, { useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import "./LandingPage.css";
 import CardComponent from "../card/CardComponent";
-
+import axios from "axios";
+import { useEffect } from "react";
 const LandingPage = () => {
   const [activeTab, setActiveTab] = useState("movies");
-
+  const [data, setData] = useState([]);
   // Sample data for movies and events
-  const data = [
-    { id: 1, title: "Movie 1", type: "movie" },
-    { id: 2, title: "Event 1", type: "event" },
-    { id: 3, title: "Movie 2", type: "movie" },
-    { id: 4, title: "Event 2", type: "event" },
-    // Add more movie and event data as needed
-  ];
+  // var data = [];
+  var filteredData = [];
+  useEffect(() => {
+    console.log("hi");
+    const fetchData = () => {
+      fetch("http://127.0.0.1:8080/landingpage/getAllEvents")
+        .then((response) => response.json())
+        .then((d) => {
+          // console.log(d.events);
+          for (let event of d.events) {
+            setData((data) => [...data, event]);
+          }
+        });
+    };
 
-  // Filtered data based on the active tab
-  const filteredData = data.filter((item) => {
+    fetchData();
+    console.log(data);
+  }, []);
+
+  console.log(data);
+  filteredData = data.filter((item) => {
     if (activeTab === "movies") {
-      return item.type === "movie";
+      return item.type === "Movie";
     } else if (activeTab === "events") {
-      return item.type === "event";
+      return item.type === "Sports" || item.type === "Concert";
     }
-    return true;
   });
-
   return (
     <div className="landing-page">
       <NavBar />
@@ -57,7 +67,15 @@ const LandingPage = () => {
             <div key={item.id}>
               {/* <h3>{item.title}</h3>
               <p>Type: {item.type}</p> */}
-              <CardComponent title={item.title} type={item.type} />
+              <CardComponent
+                key={item.id}
+                title={item.name}
+                type={item.type}
+                imagesrc={item.image}
+                date={item.date}
+                time={item.time}
+                location={item.location}
+              />
             </div>
           ))}
         </div>

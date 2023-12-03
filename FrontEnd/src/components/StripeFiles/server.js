@@ -9,10 +9,20 @@ const app = express();
 app.use(express.static("public"));
 var cors = require("cors");
 app.use(cors());
+// import { selectedSeats } from "../SeatingGrid/SeatingGrid";
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 const YOUR_DOMAIN = "http://localhost:5173";
 
 app.post("/create-checkout-session", async (req, res) => {
+  console.log(req.body.seats);
+  // res.send(seats);
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: [
@@ -20,11 +30,11 @@ app.post("/create-checkout-session", async (req, res) => {
         // TODO: replace this with the `price` of the product you want to sell
         // price: '{{PRICE_ID}}',
         price: "price_1OIivyEDbJ2CRskz9eaCGvxg",
-        quantity: 1,
+        quantity: req.body.seats,
       },
     ],
     mode: "payment",
-    success_url: `${YOUR_DOMAIN}?success=true`,
+    success_url: `${YOUR_DOMAIN}/orderConfirmed`,
     cancel_url: `${YOUR_DOMAIN}?canceled=true`,
   });
 

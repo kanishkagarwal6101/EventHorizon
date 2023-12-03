@@ -11,15 +11,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
 app.use("/user", userRouter);
 app.use("/landingpage", eventRouter);
 
-mongoose.connect(
+mongoose
+  .connect(
     "mongodb+srv://harshparikh001:awNhXaUbDPzoc29m@cluster0.z9l9jqh.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
-    app.listen(6000, () => {
-      console.log("Connected to the server and Listening on port 6000");
+    app.listen(8080, () => {
+      console.log("Connected to the server and Listening on port 8080");
     });
-});
+  });

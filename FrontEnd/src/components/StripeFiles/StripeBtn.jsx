@@ -4,26 +4,47 @@ import axios from "axios";
 const ProductDisplay = (props) => (
   <section className="stripe-card">
     <div className="product">
-      <img
-        src="https://i.imgur.com/EHyR2nP.png"
-        alt="The cover of Stubborn Attachments"
-      />
+      <img src={props.imageSource} alt="The cover of Stubborn Attachments" />
       <div className="description">
-        <h3>Stubborn Attachments</h3>
-        <h5>$20.00</h5>
+        <h3>{props.name}</h3>
+        <h5>${props.price}</h5>
       </div>
     </div>
     {/* <form action="/create-checkout-session" method="POST"> */}
-    <button type="submit" onClick={handleCheckout}>
+    <button
+      type="submit"
+      onClick={() =>
+        handleCheckout(props.seats, props.allData, props.selectedSeats)
+      }
+    >
       Checkout
     </button>
   </section>
 );
 
-async function handleCheckout() {
+async function handleCheckout(seats, allData, selectedSeats) {
   const url = "http://127.0.0.1:4242/create-checkout-session";
-  const res = await axios.post(url);
-  window.location.replace(res.data.session.url);
+  // const res = await axios.post(url);
+  await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ seats: seats }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const addInfo = {
+        date: allData.date,
+        time: allData.time,
+        location: allData.location,
+        name: allData.title,
+        selectedSeats: selectedSeats,
+      };
+      localStorage.setItem("addInfo", JSON.stringify(addInfo));
+      window.location.replace(data.session.url);
+    });
+  // window.location.replace(res.data.session.url);
 }
 const Message = ({ message }) => (
   <section>
@@ -31,7 +52,7 @@ const Message = ({ message }) => (
   </section>
 );
 
-export default function StripeBtn() {
+export default function StripeBtn(props) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
@@ -49,5 +70,16 @@ export default function StripeBtn() {
     }
   }, []);
 
-  return message ? <Message message={message} /> : <ProductDisplay />;
+  return message ? (
+    <Message message={message} />
+  ) : (
+    <ProductDisplay
+      allData={props.allData}
+      name={props.name}
+      price={props.price}
+      seats={props.seats}
+      imageSource={props.imageSource}
+      selectedSeats={props.selectedSeats}
+    />
+  );
 }

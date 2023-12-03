@@ -1,6 +1,5 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
-
 export const getAllUsers = async (req, res, next) => {
   let users;
   try {
@@ -46,7 +45,6 @@ export const signup = async (req, res) => {
   return res.status(200).json({ id: user._id });
 };
 
-
 export const login = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email && email.trim() === "" && !password && password.trim() === "") {
@@ -71,6 +69,7 @@ export const login = async (req, res, next) => {
     return res.status(400).json({ message: "Incorrect Password" });
   }
 
-  return res.status(200)
+  return res
+    .status(200)
     .json({ message: "Login Successfull", id: existingUser._id });
 };

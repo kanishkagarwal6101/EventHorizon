@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import "./SeatingGrid.css";
 import StripeBtn from "../StripeFiles/StripeBtn";
 // import StripeBtn from "../StripeFiles/StripeBtn";
+import { useLocation } from "react-router-dom";
+import OrderConfirmed from "../OrderConfirmed/OrderConfirmed";
+import Context from "../contextFiles/context.js";
 
-const SeatingGrid = ({ bookedSeats }) => {
+const SeatingGrid = () => {
+  const location = useLocation();
+  var bookedSeats = location.state.bookedSeats;
+  // var imageSource = location.state.data.imagesrc
+  console.log(location.state.data.title);
   const totalRows = 10; // Total number of rows
   const initialSeats = 8; // Initial number of seats in the first row
   const seatsIncrease = 3; // Number of seats to increase every 2 rows
@@ -63,12 +70,23 @@ const SeatingGrid = ({ bookedSeats }) => {
 
     return rows;
   };
-
   return (
     <div className="seating-grid">
       <div className="screen">Screen this way</div>
       {renderSeats()}
-      <StripeBtn />
+      <StripeBtn
+        allData={location.state.data}
+        name={location.state.data.title}
+        imageSource={location.state.data.imagesrc}
+        price={selectedSeats.length * 10}
+        seats={selectedSeats.length}
+        selectedSeats={selectedSeats}
+      />
+      {/* <Context.Provider value={location.state.data}>
+        <div className="order-confirmed-hide">
+          <OrderConfirmed />
+        </div>
+      </Context.Provider> */}
     </div>
   );
 };

@@ -4,7 +4,8 @@ import Login from "./components/login/Login.jsx";
 import SignupForm from "./components/signup/Signup.jsx";
 import LandingPage from "./components/landingPage/LandingPage.jsx";
 import SeatingGrid from "./components/SeatingGrid/SeatingGrid.jsx";
-
+import OrderConfirmed from "./components/OrderConfirmed/OrderConfirmed.jsx";
+// import "./App.css";
 function App() {
   return (
     <Router>
@@ -13,7 +14,8 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/" element={<Home />} />
         <Route path="/landingPage" element={<LandingPage />} />
-        <Route path="/grid" element={<SeatingGrid bookedSeats={["D4"]} />} />
+        <Route path="/grid" element={<SeatingGrid />} />
+        <Route path="/orderConfirmed" element={<OrderConfirmed />} />
       </Routes>
     </Router>
   );
