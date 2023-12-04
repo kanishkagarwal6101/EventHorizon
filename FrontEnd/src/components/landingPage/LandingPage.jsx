@@ -9,6 +9,12 @@ const LandingPage = () => {
   const [data, setData] = useState([]);
   // Sample data for movies and events
   // var data = [];
+
+  const scrollToSecondHalf = () => {
+    const secondHalfSection = document.getElementById('second-half');
+    secondHalfSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   var filteredData = [];
   useEffect(() => {
     console.log("hi");
@@ -44,10 +50,10 @@ const LandingPage = () => {
           <p>
             Unforgettable Journey - Where Every Seat Is A Front Row Experience
           </p>
-          <button className="explore-btn">Explore movies and events</button>
+          <button onClick={scrollToSecondHalf} className="explore-btn">Explore movies and events</button>
         </div>
       </div>
-      <section className="second-fold">
+      <section id="second-half" className="second-fold">
         <div className="tabs">
           <button
             className={activeTab === "movies" ? "active" : ""}
