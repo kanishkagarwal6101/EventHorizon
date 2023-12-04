@@ -33,13 +33,13 @@ const OrderConfirmed = () => {
         });
     };
 
-    // fetch("http:///127.0.0.1:8080/grid/postseats", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(postData),
-    // });
+    fetch("http:///127.0.0.1:8080/grid/postseats", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(postData),
+    });
     fetchData();
     console.log(data);
 
