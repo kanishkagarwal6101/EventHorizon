@@ -4,6 +4,7 @@
     padding: 20px;
     background-color: #222;
     color: #fff;
+    /* margin-top: 100px; */
   }
   
   /* Dark theme for headings */
@@ -24,21 +25,41 @@
     border-bottom: 1px solid #444;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  
-  /* Dark theme for QR code section */
-  .movie-order-confirmed .qr-code {
-    /* Your QR code styles can go here */
-    /* Example:
-    border: 2px solid #fff;
-    */
-  }
-  
-  /* Dark theme for recommendation section */
-  .movie-order-confirmed .recommendation {
-    /* Your recommendation section styles can go here */
-    /* Example:
-    background-color: #333;
-    */
-  }
-  
+
+.movie-order-confirmed{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recommendation{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recom-card{
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+}
+
+.recomImg{
+    max-width: 20%;;
+}
+
+.movie-order-confirmed{
+    margin-top: 32px!important;
+}
+p{
+    padding-left: 20px;
+}
