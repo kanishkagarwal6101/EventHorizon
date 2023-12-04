@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./routes/User_Routes.js";
 import eventRouter from "./routes/Event_Routes.js";
+import movieRouter from "./routes/Movie_Routes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use("/user", userRouter);
 app.use("/landingpage", eventRouter);
+app.use("/grid", movieRouter);
 
 mongoose
   .connect(
