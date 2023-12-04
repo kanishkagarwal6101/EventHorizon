@@ -70,3 +70,7 @@ button:hover{
   justify-content: space-evenly;
   padding-top: 30px;
 }
+
+.landing-page-text{
+  color: white;
+}

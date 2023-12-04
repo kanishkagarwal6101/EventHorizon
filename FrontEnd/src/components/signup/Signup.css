@@ -1,12 +1,13 @@
 body {
   background-color: #111; /* Dark background color for the entire page */
-  color: #fff; /* Light text color */
+  color: white; /* Light text color */
   font-family: Arial, sans-serif; /* Use your preferred font-family */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
+  overflow-x: hidden;
 }
 
 .signup-form-container{
