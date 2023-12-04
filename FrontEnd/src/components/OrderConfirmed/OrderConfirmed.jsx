@@ -5,6 +5,7 @@ import { toString, toDataURL } from "qrcode";
 import QRCode from "react-qr-code";
 import { useEffect } from "react";
 import CardComponent from "../card/CardComponent";
+import "./OrderConfirmed.css";
 const OrderConfirmed = () => {
   const [data, setData] = React.useState([]);
   const [filteredData, setFilteredData] = React.useState([]);
@@ -15,7 +16,7 @@ const OrderConfirmed = () => {
   console.log(allData.selectedSeats);
   const postData = {
     name: name,
-    seats: allData.selectedSeats.join(","),
+    ticket: allData.selectedSeats.join(","),
   };
   //   const data = useContext(Context);
   // Function to generate QR code can be placed here
@@ -32,13 +33,13 @@ const OrderConfirmed = () => {
         });
     };
 
-    fetch("", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ postData }),
-    });
+    // fetch("http:///127.0.0.1:8080/grid/postseats", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(postData),
+    // });
     fetchData();
     console.log(data);
 
@@ -65,6 +66,18 @@ const OrderConfirmed = () => {
       <div className="recommendation">
         <h2>You might also like</h2>
         {/* <p>{filteredData[0].name}</p> */}
+        <div>
+          {data.map((item) => {
+            if (item.name === name) {
+              return (
+                <div className="recom-card">
+                  <img className="recomImg" src={item.recommendation_img} />
+                  <p>{item.recommendation}</p>
+                </div>
+              );
+            }
+          })}
+        </div>
       </div>
     </div>
   );
