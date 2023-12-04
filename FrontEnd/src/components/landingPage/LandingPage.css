@@ -70,3 +70,8 @@ button:hover{
   justify-content: space-evenly;
   padding-top: 30px;
 }
+
+body{
+
+  overflow-x: hidden;
+}
