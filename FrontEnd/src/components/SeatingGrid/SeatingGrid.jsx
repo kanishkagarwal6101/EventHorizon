@@ -1,37 +1,53 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SeatingGrid.css";
 import StripeBtn from "../StripeFiles/StripeBtn";
-// import StripeBtn from "../StripeFiles/StripeBtn";
 import { useLocation } from "react-router-dom";
 import OrderConfirmed from "../OrderConfirmed/OrderConfirmed";
 import Context from "../contextFiles/context.js";
 
 const SeatingGrid = () => {
   const location = useLocation();
-  var bookedSeats = location.state.bookedSeats;
-  // var imageSource = location.state.data.imagesrc
-  console.log(location.state.data.title);
-  const totalRows = 10; // Total number of rows
-  const initialSeats = 8; // Initial number of seats in the first row
-  const seatsIncrease = 3; // Number of seats to increase every 2 rows
-
-  // Use state to manage selected seats
+  const [bookedSeats, setBookedSeats] = useState([]);
   const [selectedSeats, setSelectedSeats] = useState([]);
 
+  useEffect(() => {
+    // const fetchBookedSeats = async () => {
+    //   try {
+    //     const response = await fetch("http://localhost:8080/grid/getseats/");
+    //     const data = await response.json();
+    //     console.log(data);
+    //     const bookedSeatsArray = data.ticket.split(', ');
+    //     setBookedSeats(bookedSeatsArray);
+    //     console.log(bookedSeatsArray);
+    //   } catch (err) {
+    //     console.log(`Issue in fetching booked seats ${err}`);
+    //   }
+    // };
+    fetch("http://localhost:8080/grid/getseats/").then(res=>res.json()).then(d=>{
+      console.log(d.movie[0].ticket)
+      const bookedSeatsArray = d.movie[0].ticket.split(',');
+      setBookedSeats(bookedSeatsArray);
+      console.log(bookedSeatsArray);
+    })
+
+    // fetchBookedSeats();
+  }, []);
+
   const handleSeatClick = (seatNumber) => {
-    // Check if the seat is already booked or selected
     if (!bookedSeats.includes(seatNumber)) {
       setSelectedSeats((prevSelectedSeats) => {
         if (prevSelectedSeats.includes(seatNumber)) {
-          // Remove seat if already selected
           return prevSelectedSeats.filter((seat) => seat !== seatNumber);
         } else {
-          // Add seat to selected seats
           return [...prevSelectedSeats, seatNumber];
         }
       });
     }
   };
+
+  const totalRows = 10; // Total number of rows
+  const initialSeats = 8; // Initial number of seats in the first row
+  const seatsIncrease = 3; // Number of seats to increase every 2 rows
 
   const renderSeats = () => {
     const rows = [];
@@ -42,7 +58,6 @@ const SeatingGrid = () => {
       const seats = [];
       for (let j = 1; j <= seatsInRow; j++) {
         const seatNumber = `${String.fromCharCode(64 + i)}${j}`;
-
         const isBooked = bookedSeats.includes(seatNumber);
         const isSelected = selectedSeats.includes(seatNumber);
 
@@ -70,6 +85,7 @@ const SeatingGrid = () => {
 
     return rows;
   };
+
   return (
     <div className="seating-grid">
       <div className="screen">Screen this way</div>
