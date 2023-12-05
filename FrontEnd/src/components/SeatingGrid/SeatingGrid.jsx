@@ -23,12 +23,21 @@ const SeatingGrid = () => {
     //     console.log(`Issue in fetching booked seats ${err}`);
     //   }
     // };
-    fetch("http://localhost:8080/grid/getseats/").then(res=>res.json()).then(d=>{
-      console.log(d.movie[0].ticket)
-      const bookedSeatsArray = d.movie[0].ticket.split(',');
-      setBookedSeats(bookedSeatsArray);
-      console.log(bookedSeatsArray);
-    })
+    fetch("http://localhost:8080/grid/getseats/")
+      .then((res) => res.json())
+      .then((d) => {
+        d.movie.map((movie) => {
+          if (movie.name === location.state.data.title) {
+            console.log(movie.ticket.split(","));
+            var bookedSeatsArray = movie.ticket.split(",");
+            console.log(bookedSeatsArray);
+            setBookedSeats(bookedSeatsArray);
+          }
+        });
+        // const bookedSeatsArray = d.movie[0].ticket.split(",");
+        // setBookedSeats(bookedSeatsArray);
+        // console.log(bookedSeatsArray);
+      });
 
     // fetchBookedSeats();
   }, []);

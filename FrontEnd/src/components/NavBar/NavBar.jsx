@@ -13,8 +13,8 @@ const NavBar = () => {
         <input type="text" placeholder="Search..." />
       </div>
       <div className="navbar-right">
-        <Link to="/profile" className="profile-link">
-          Profile <FontAwesomeIcon icon={faUserCircle} />
+        <Link to="/login" className="profile-link">
+          login <FontAwesomeIcon icon={faUserCircle} />
         </Link>
       </div>
     </nav>
