@@ -11,15 +11,17 @@ const LandingPage = () => {
   // var data = [];
 
   const scrollToSecondHalf = () => {
-    const secondHalfSection = document.getElementById('second-half');
-    secondHalfSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const secondHalfSection = document.getElementById("second-half");
+    secondHalfSection.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   var filteredData = [];
   useEffect(() => {
     console.log("hi");
     const fetchData = () => {
-      fetch("http://127.0.0.1:8080/landingpage/getAllEvents")
+      fetch(
+        "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/landingpage/getAllEvents"
+      )
         .then((response) => response.json())
         .then((d) => {
           // console.log(d.events);
@@ -50,7 +52,9 @@ const LandingPage = () => {
           <p>
             Unforgettable Journey - Where Every Seat Is A Front Row Experience
           </p>
-          <button onClick={scrollToSecondHalf} className="explore-btn">Explore movies and events</button>
+          <button onClick={scrollToSecondHalf} className="explore-btn">
+            Explore movies and events
+          </button>
         </div>
       </div>
       <section id="second-half" className="second-fold">

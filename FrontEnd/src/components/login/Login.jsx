@@ -1,23 +1,26 @@
 import React, { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./Login.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/user/login', {
-        userId: userId,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/user/login",
+        {
+          userId: userId,
+          password: password,
+        }
+      );
 
       const user = response.data.user;
       console.log(`Logged in as ${user.userId}`);
-      navigate('/landingpage');
+      navigate("/landingpage");
     } catch (error) {
-      console.error('Login Error:', error.message);
+      console.error("Login Error:", error.message);
     }
   };
 

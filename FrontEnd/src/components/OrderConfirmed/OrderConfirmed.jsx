@@ -23,7 +23,9 @@ const OrderConfirmed = () => {
   useEffect(() => {
     console.log("hi");
     const fetchData = () => {
-      fetch("http://127.0.0.1:8080/landingpage/getAllEvents")
+      fetch(
+        "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/landingpage/getAllEvents"
+      )
         .then((response) => response.json())
         .then((d) => {
           // console.log(d.events);
@@ -33,13 +35,16 @@ const OrderConfirmed = () => {
         });
     };
 
-    fetch("http:///127.0.0.1:8080/grid/postseats", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postData),
-    });
+    fetch(
+      "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/grid/postseats",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(postData),
+      }
+    );
     fetchData();
     console.log(data);
 

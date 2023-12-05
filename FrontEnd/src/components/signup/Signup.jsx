@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Signup.css";
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function SignupForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,12 +20,15 @@ function SignupForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/user/signup', formData);
+      const response = await axios.post(
+        "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/user/signup",
+        formData
+      );
       console.log(response.data);
-      alert('User Registered Sucessfully');
-      navigate('/login');
+      alert("User Registered Sucessfully");
+      navigate("/login");
     } catch (error) {
-      console.error('Signup Error:', error);
+      console.error("Signup Error:", error);
     }
   };
 
