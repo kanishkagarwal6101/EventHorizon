@@ -23,7 +23,7 @@
     "scripts": {
         "start-client": "react-scripts start",
         "start-server": "node server.js",
-        "start": "concurrently \"yarn start-client\" \"yarn start-server\""
+        "start": "node server.js"
     },
     "eslintConfig": {
         "extends": [
