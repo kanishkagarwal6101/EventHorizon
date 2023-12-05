@@ -21,7 +21,7 @@ mongoose
     "mongodb+srv://harshparikh001:awNhXaUbDPzoc29m@cluster0.z9l9jqh.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
-    app.listen(8080, () => {
+    app.listen(process.env.PORT || 8080, () => {
       console.log("Connected to the server and Listening on port 8080");
     });
   });
