@@ -23,7 +23,8 @@ const ProductDisplay = (props) => (
 );
 
 async function handleCheckout(seats, allData, selectedSeats) {
-  const url = "http://127.0.0.1:4242/create-checkout-session";
+  const url =
+    " https://stripebackendeventh-b2f20e6d25e4.herokuapp.com/create-checkout-session";
   // const res = await axios.post(url);
   await fetch(url, {
     method: "POST",
