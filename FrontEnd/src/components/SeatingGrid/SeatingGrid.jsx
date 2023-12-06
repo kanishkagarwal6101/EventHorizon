@@ -23,7 +23,9 @@ const SeatingGrid = () => {
     //     console.log(`Issue in fetching booked seats ${err}`);
     //   }
     // };
-    fetch("http://localhost:8080/grid/getseats/")
+    fetch(
+      "https://eventhorizonbackend-4090e4862a7d.herokuapp.com/grid/getseats/"
+    )
       .then((res) => res.json())
       .then((d) => {
         d.movie.map((movie) => {
