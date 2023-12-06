@@ -18,7 +18,8 @@ app.use(
   })
 );
 
-const YOUR_DOMAIN = "http://localhost:5173";
+const YOUR_DOMAIN =
+  "https://656fbf0b9c6031009a1e89f7--eventhorizonwebapp.netlify.app";
 
 app.post("/create-checkout-session", async (req, res) => {
   console.log(req.body.seats);
